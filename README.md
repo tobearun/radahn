@@ -1,44 +1,90 @@
+# Radahn
 
-### Step-by-Step Procedure to Push to GitHub from PyCharm
+**Radahn** (Vulnerability Assessment Tool) is a Python-based application designed to perform network and web vulnerability assessments. The tool can scan for open ports, identify vulnerabilities, and generate comprehensive reports.
 
-1. **Open Project in PyCharm**:
-   - Open your Radahn project in PyCharm.
+## Features
 
-2. **Initialize Git Repository**:
-   - Go to `VCS` > `Enable Version Control Integration`.
-   - Choose `Git` from the dropdown and click `OK`.
+- **Network Scanning**: Detects open ports and services running on network hosts.
+- **Web Vulnerability Scanning**: Scans for SQL injection vulnerabilities.
+- **Result Parsing**: Parses scan results into a readable format.
+- **Report Generation**: Generates detailed reports from scan results.
 
-3. **Add Files to Git**:
-   - Right-click on the project folder and select `Git` > `Add`.
+## Installation
 
-4. **Commit Changes**:
-   - Go to `VCS` > `Commit`.
-   - Select all the files you want to commit, add a commit message, and click `Commit`.
+1. **Clone the Repository:**
 
-5. **Push to GitHub**:
-   - Go to `VCS` > `Git` > `Push`.
-   - If it's your first time pushing, you might need to define the remote repository. Click `Define Remote` and enter your GitHub repository URL (e.g., `https://github.com/username/Radahn.git`).
-   - Click `Push`.
+    ```sh
+    git clone https://github.com/username/Radahn.git
+    cd Radahn
+    ```
 
-### Step-by-Step Procedure to Push to GitHub from VS Code
+2. **Create a Virtual Environment:**
 
-1. **Open Project in VS Code**:
-   - Open your Radahn project in VS Code.
+    ```sh
+    python -m venv .venv
+    ```
 
-2. **Initialize Git Repository**:
-   - Open the terminal in VS Code (Ctrl+`).
-   - Run `git init` to initialize a Git repository.
+3. **Activate the Virtual Environment:**
 
-3. **Add Files to Git**:
-   - Run `git add .` to stage all the files.
+    - **Windows:**
+      ```sh
+      .venv\Scripts\activate
+      ```
+    - **Linux/Mac:**
+      ```sh
+      source .venv/bin/activate
+      ```
 
-4. **Commit Changes**:
-   - Run `git commit -m "Initial commit"` to commit your changes with a message.
+4. **Install Dependencies:**
 
-5. **Add Remote Repository**:
-   - Run `git remote add origin https://github.com/username/Radahn.git` to add the remote repository.
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-6. **Push to GitHub**:
-   - Run `git push -u origin master` to push your changes to GitHub.
+5. **Install Nmap:**
 
-Make sure to replace `username` with your actual GitHub username. You can continue adding more tools and functionality to the project and push the changes to GitHub as needed.
+    Ensure you have Nmap installed on your system. You can download it from [nmap.org](https://nmap.org/download.html).
+
+## Usage
+
+1. **Network Scan:**
+
+    ```sh
+    python main.py <network_target>
+    ```
+
+    Example:
+    ```sh
+    python main.py 192.168.1.1/24
+    ```
+
+2. **Web Vulnerability Scan:**
+
+    ```sh
+    python main.py <network_target> <web_target>
+    ```
+
+    Example:
+    ```sh
+    python main.py 192.168.1.1/24 http://example.com
+    ```
+
+## Project Structure
+
+```plaintext
+Radahn/
+├── .venv/
+├── scanner/
+│   ├── __init__.py
+│   ├── network_scanner.py
+│   └── web_scanner.py
+├── parser/
+│   ├── __init__.py
+│   └── result_parser.py
+├── report/
+│   ├── __init__.py
+│   └── report_generator.py
+├── main.py
+├── requirements.txt
+├── .gitignore
+└── README.md

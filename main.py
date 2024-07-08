@@ -3,6 +3,7 @@ from scanner.network_scanner import scan_network
 from scanner.web_scanner import scan_sql_injection
 from parser.result_parser import parse_network_scan, parse_web_scan
 from report.report_generator import generate_report
+from intro import show_splash_screen
 
 
 def main():
@@ -32,4 +33,5 @@ def main():
 
 
 if __name__ == "__main__":
+    show_splash_screen()
     main()
